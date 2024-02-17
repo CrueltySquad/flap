@@ -21,6 +21,12 @@ const ground = {
   height: 40,
 };
 
+const birdImage = new Image();
+birdImage.src = 'bird.png'; // Replace with the actual path to your bird image
+
+const pipeImage = new Image();
+pipeImage.src = 'pipe.png'; // Replace with the actual path to your pipe image
+
 function drawImage(image, x, y, width, height) {
   ctx.drawImage(image, x, y, width, height);
 }
@@ -85,3 +91,15 @@ function addPipe() {
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawBird();
+  drawGround();
+
+  updateBird();
+  updatePipes();
+  addPipe();
+
+  requestAnimationFrame(update);
+}
+
+update();
